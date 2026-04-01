@@ -1,19 +1,12 @@
-from app.utils.llm import call_llm
+from app.agents.scenario_agent import generate_scenario
 
 def main():
-    prompt = """
-You are a mentor.
+    role = "AI Engineer"
+    
+    scenario = generate_scenario(role)
 
-Explain what an AI engineer does:
-- in simple terms
-- with a real-world example
-- in under 150 words
-"""
-
-    response = call_llm(prompt)
-
-    print("\n--- AI Response ---\n")
-    print(response)
+    print("\n--- SCENARIO ---\n")
+    print(scenario)
 
 if __name__ == "__main__":
     main()

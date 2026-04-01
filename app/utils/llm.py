@@ -9,11 +9,9 @@ client = InferenceClient(
     token=os.getenv("HF_API_KEY")
 )
 
-def call_llm(prompt: str) -> str:
+def call_llm(messages):
     response = client.chat_completion(
-        messages=[
-            {"role": "user", "content": prompt}
-        ],
+        messages=messages,
         max_tokens=300,
         temperature=0.7
     )
